@@ -66,11 +66,7 @@
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
-    "coverageDirectory": "../coverage",
-    "globals": {
-      "ts-jest": {
-        "tsConfigFile": "./tsconfig.jest.json"
-      }
-    }
+    "coverageDirectory": "../coverage"
+
   }
 }

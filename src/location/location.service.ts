@@ -11,28 +11,29 @@ export class LocationService {
     constructor(@InjectModel('Location') private readonly locationModel: Model<Location>) { }
 
     locations(): Observable<Location[]> {
-        // return defer(() => this.locationsPromise())
-        return of([])
+        return defer(() => this.locationsPromise())
+        // return this.locationModel.find().lean().exec();
+        // return this.locationsPromise();
+        // return this.locationModel.find().lean()
     }
 
-    private async locationsPromise() {//: Promise<Location[]> {
-        // return await this.locationModel.find().exec();
+    private locationsPromise(): Promise<Location[]> {
+        console.log('ASYNC LOCATION PROMISE DB DATA: ')
+        return this.locationModel.find().lean().exec()
     }
 
     private startTrackingSession() {
-        console.log('we are tracking session')
+        // console.log('we are tracking session')
     }
 
-    trackLocation(locationDto: LocationTrackDto): Observable<any> {
-        // this.startTrackingSession();
-        // const location = new this.locationModel(locationDto);
-        // return defer(async function () {
-        //     return await location.save();
-        // })
-
-        return of({})
-        // return of('all user locations')
-
-        // return 'user location lat: ' + location.latitude + ' long: ' + location.longitude
+    trackLocation(locationDto: LocationTrackDto): Observable<Location> {
+        // console.log('we are gonna persist this: ' + JSON.stringify(locationDto))
+        this.startTrackingSession();
+        const location = new this.locationModel(locationDto);
+        // console.log('final mongo: ' + JSON.stringify(locationDto))
+        return defer(async function () {
+            console.log('DB PERSISTING DATA')
+            return await location.save();
+        })
     }
 }

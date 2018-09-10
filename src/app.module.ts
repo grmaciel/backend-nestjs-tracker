@@ -6,21 +6,19 @@ import { AuthModule } from 'authentication/auth.module';
 import { LocationController } from 'location/location.controller';
 import { LocationService } from 'location/location.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { LocationModule } from 'location/location.module';
+import { LocationModule } from './location/location.module';
 import { DatabaseModule } from 'database/database.module';
 
 @Module({
   imports: [
-    AuthModule,
-    DatabaseModule,
-    LocationModule
+    MongooseModule.forRoot('mongodb://localhost/location-tracker'),
+    LocationModule,
   ],
   controllers: [
-    AppController,
-    UserController
+
   ],
   providers: [
-    AppService,
-  ],
+
+  ]
 })
 export class AppModule { }
