@@ -14,18 +14,27 @@
     "test": "jest",
     "test:cov": "jest --coverage",
     "test:e2e": "jest --config ./test/jest-e2e.json",
+    "e2e": "jest --config=e2e/jest-e2e.json --forceExit",
+    "e2e:watch": "jest --watch --config=e2e/jest-e2e.json",
     "webpack": "webpack --config webpack.config.js"
   },
   "dependencies": {
     "@nestjs/common": "^5.0.0",
     "@nestjs/core": "^5.0.0",
+    "@nestjs/mongoose": "^5.2.2",
     "@nestjs/passport": "^1.1.0",
+    "@types/mongoose": "^5.2.11",
     "fastify-formbody": "^2.0.0",
+    "kerberos": "^1.0.0",
+    "mongoose": "^5.2.13",
     "passport": "^0.4.0",
     "passport-http-bearer": "^1.0.1",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.0.0",
     "typescript": "^2.6.2"
+  },
+  "peerOptionalDependencies": {
+    "kerberos": "^1.0.0"
   },
   "devDependencies": {
     "@nestjs/testing": "^5.3.1",
@@ -57,6 +66,11 @@
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
-    "coverageDirectory": "../coverage"
+    "coverageDirectory": "../coverage",
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "./tsconfig.jest.json"
+      }
+    }
   }
 }

@@ -1,8 +1,8 @@
 import request from 'supertest';
 import { Test } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
-import { LocationController } from './location.controller';
-import { LocationService } from './location.service';
+import { DatabaseModule } from 'database/database.module';
+import { LocationModule } from 'location/location.module';
 
 describe('Location', () => {
     let app: INestApplication;
@@ -10,8 +10,13 @@ describe('Location', () => {
 
     beforeAll(async () => {
         const module = await Test.createTestingModule({
-            controllers: [LocationController],
-            providers: [LocationService],
+            imports: [
+                DatabaseModule,
+                LocationModule
+            ],
+            providers: [],
+            controllers: []
+
         })
             // .overrideProvider(LocationService)
             // .useValue(locationService)

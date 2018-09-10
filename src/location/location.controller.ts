@@ -10,7 +10,7 @@ export class LocationController {
     constructor(private readonly locationService: LocationService) { }
     @Get()
     locations(): Observable<string> {
-        return this.locationService.locations()
+        return null//this.locationService.locations()
     }
 
     @Put()

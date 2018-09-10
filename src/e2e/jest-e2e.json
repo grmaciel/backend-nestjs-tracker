@@ -1,0 +1,13 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": ".",
+  "testRegex": "/e2e/.*\\.(e2e-test|e2e-spec).(ts|tsx|js)$",
+  "transform": {
+    "^.+\\.tsx?$": "<rootDir>/../node_modules/ts-jest/preprocessor.js"
+},
+  "globals": {
+    "ts-jest": {
+      "tsConfigFile": "./tsconfig.jest.json"
+    }
+  }
+}
