@@ -11,14 +11,12 @@ export class LocationController {
     constructor(private readonly locationService: LocationService) { }
     @Get()
     locations(): Observable<Location[]> {
-        console.log('GET CALLEED')
         return this.locationService.locations()
     }
 
     @Put()
     @HttpCode(201)
     trackLocation(@Body() locationDto: LocationTrackDto) {
-        console.log('PUT CALLEED')
         return this.locationService.trackLocation(locationDto)
     }
 }

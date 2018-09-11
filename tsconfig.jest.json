@@ -3,5 +3,7 @@
     "extends": "./tsconfig.json",
     "compilerOptions": {
         "allowSyntheticDefaultImports": false
-    }
+    },
+    "forceExit": true,
+    "verbose": true
 }
