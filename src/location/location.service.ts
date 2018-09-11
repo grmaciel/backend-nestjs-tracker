@@ -12,13 +12,9 @@ export class LocationService {
 
     locations(): Observable<Location[]> {
         return defer(() => this.locationsPromise())
-        // return this.locationModel.find().lean().exec();
-        // return this.locationsPromise();
-        // return this.locationModel.find().lean()
     }
 
     private locationsPromise(): Promise<Location[]> {
-        console.log('ASYNC LOCATION PROMISE DB DATA: ')
         return this.locationModel.find().lean().exec()
     }
 
@@ -27,13 +23,10 @@ export class LocationService {
     }
 
     trackLocation(locationDto: LocationTrackDto): Observable<Location> {
-        // console.log('we are gonna persist this: ' + JSON.stringify(locationDto))
         this.startTrackingSession();
-        const location = new this.locationModel(locationDto);
-        // console.log('final mongo: ' + JSON.stringify(locationDto))
+        const location = new this.locationModel(locationDto)
         return defer(async function () {
-            console.log('DB PERSISTING DATA')
-            return await location.save();
+            return await location.save()
         })
     }
 }
