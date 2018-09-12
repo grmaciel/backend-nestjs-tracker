@@ -5,18 +5,18 @@ import { TransformInterceptor } from "../common/interceptors/transform.intercept
 import { LocationTrackDto } from "./dto/location-track.dto";
 import { Location } from "./location.interface";
 
-@Controller('location')
-@UseInterceptors(TransformInterceptor)
-export class LocationController {
-    constructor(private readonly locationService: LocationService) { }
-    @Get()
-    locations(): Observable<Location[]> {
-        return this.locationService.locations()
-    }
+// @Controller('location')
+// @UseInterceptors(TransformInterceptor)
+// export class LocationController {
+    // constructor(private readonly locationService: LocationService) { }
+    // @Get()
+    // locations(): Observable<Location[]> {
+    //     return this.locationService.locations()
+    // }
 
-    @Put()
-    @HttpCode(201)
-    trackLocation(@Body() locationDto: LocationTrackDto) {
-        return this.locationService.trackLocation(locationDto)
-    }
-}
+    // @Put()
+    // @HttpCode(201)
+    // trackLocation(@Body() locationDto: LocationTrackDto) {
+    //     return this.locationService.trackLocation(locationDto)
+    // }
+// }
