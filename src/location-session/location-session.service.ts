@@ -29,6 +29,6 @@ export class LocationSessionService {
     }
 
     activeSession() {
-
+        // TODO: WE NEED TO RETURN THIS SOMEWHEN
     }
 }

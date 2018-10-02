@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserController } from 'users/users.controller';
 import { AuthModule } from 'authentication/auth.module';
-import { LocationController } from 'location/location.controller';
+// import { LocationController } from 'location/location.controller';
 import { LocationService } from '../src/location/location.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { DatabaseModule } from 'database/database.module';
